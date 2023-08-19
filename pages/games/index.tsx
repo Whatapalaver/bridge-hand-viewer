@@ -39,7 +39,11 @@ export default function Game() {
     <div className={styles.cardTable}>
       {DIRECTIONS.map((dir) => {
         return (
-          <div className={styles.option} data-selected={dir === direction}>
+          <div
+            className={styles.option}
+            data-selected={dir === direction}
+            key={dir}
+          >
             <input
               type="radio"
               value={dir}

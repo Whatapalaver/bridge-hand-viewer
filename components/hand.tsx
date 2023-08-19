@@ -9,9 +9,8 @@ type Props = {
 };
 
 export default function Hand({ cards }: Props) {
-  if (cards === undefined) return null;
-
   const [reveal, setReveal] = useState(false);
+  if (cards === undefined) return null;
   const toggleReveal = () => setReveal((value) => !value);
 
   return (
@@ -35,6 +34,7 @@ export default function Hand({ cards }: Props) {
               alt="card"
               width={158}
               height={238}
+              key={card}
             />
           );
         })}
