@@ -1,0 +1,17 @@
+.playerHand {
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+}
+
+.cardTable {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: #076324;
+  overflow: hidden;
+  height: 100vh;
+}
