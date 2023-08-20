@@ -1,43 +1,33 @@
 import Image from "next/image";
-import { useState } from "react";
-import BtnStyles from "../styles/button.module.scss";
+
 import HandStyles from "../styles/hand.module.scss";
 import cx from "classnames";
 
 type Props = {
   cards: string[];
+  visible: boolean;
+  cardinal: string;
+  hcp: string;
 };
 
-export default function Hand({ cards }: Props) {
-  const [reveal, setReveal] = useState(false);
+export default function Hand({ cards, visible, cardinal, hcp }: Props) {
   if (cards === undefined) return null;
-  const toggleReveal = () => setReveal((value) => !value);
 
   return (
     <div className={HandStyles.playerHand}>
-      <button
-        className={cx(BtnStyles.primary, HandStyles.btn)}
-        onClick={(e) => {
-          toggleReveal();
-        }}
-      >
-        {" "}
-        {reveal ? "Hide" : "Reveal"}
-      </button>
+      {visible && <div className={HandStyles.points}>{hcp}</div>}
       <div className={cx(HandStyles.cards)}>
         {cards.map((card) => {
           return (
-            <div className={HandStyles.card} key={card}>
+            <div className={HandStyles.card} key={`${cardinal}${card}`}>
               <Image
                 src={
-                  reveal
+                  visible
                     ? `/images/cardsvg/${card}.svg`
                     : "/images/cardsvg/b.svg"
                 }
                 alt="card"
                 fill
-                // width={158}
-                // height={238}
               />
             </div>
           );

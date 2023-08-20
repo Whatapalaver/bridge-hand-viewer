@@ -8,7 +8,7 @@
 }
 
 .btn {
-  max-width: 200px;
+  max-width: 175px;
 }
 
 @mixin fan($count, $angle) {
@@ -23,9 +23,10 @@
 .cards {
   height: 500px;
   width: 100%;
-
+  @media (max-width: $breakpoint) {
+    height: 350px;
+  }
   @include fan(13, 90deg);
-
   &:hover {
     @include fan(13, 110deg);
   }
@@ -48,5 +49,10 @@
   @media (max-width: $breakpoint) {
     height: calc(0.7 * $cardheight);
     width: calc(0.7 * $cardwidth);
+    top: 375px;
   }
+}
+
+.points {
+  color: white;
 }

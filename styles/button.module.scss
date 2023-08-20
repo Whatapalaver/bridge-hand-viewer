@@ -1,5 +1,10 @@
+@import "../styles/variables.scss";
 .primary {
   @apply bg-blue-700 text-white p-4 rounded-lg;
+  &[disabled] {
+    background-color: $darkgrey;
+    color: $lightgrey;
+  }
 }
 
 .error {

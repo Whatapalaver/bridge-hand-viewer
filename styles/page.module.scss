@@ -1,0 +1,22 @@
+@import "../styles/variables.scss";
+.container {
+  @include responsive-width;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  &.center {
+    text-align: center;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigation {
+  display: flex;
+  gap: 5px;
+}
