@@ -1,0 +1,37 @@
+// Page layout
+$pagewidth: 940px;
+$narrowpagewidth: 700px;
+$loginpagewidth: 420px;
+$sidebarwidth: 200px;
+$gutter: 10px;
+$narrowgutter: 15px;
+// Mobile breakpoint, when flexbox puts the
+// main content under the sidebar
+$breakpoint: 709px;
+
+// Colours
+$lightgrey: #e4e4e4;
+$lighttext: #aaa;
+
+// Form controls, and other formlike things
+$controlpadding: 8px 10px;
+$controlborder: 1px solid $lightgrey;
+$controlradius: 3px;
+$zrxcontrolradius: 4px;
+$controlhovercolor: #eee;
+$controllineheight: calc(1.5em * 1.1);
+
+@mixin responsive-width {
+  max-width: $pagewidth;
+  margin: 0 auto;
+  padding: 0 $gutter;
+  &.fullwidth1024 {
+    max-width: 1024px;
+  }
+  &.narrow {
+    max-width: $narrowpagewidth;
+  }
+}
+
+$cardheight: 220px;
+$cardwidth: 158px;

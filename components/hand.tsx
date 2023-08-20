@@ -14,7 +14,7 @@ export default function Hand({ cards }: Props) {
   const toggleReveal = () => setReveal((value) => !value);
 
   return (
-    <div className={HandStyles.container}>
+    <div className={HandStyles.playerHand}>
       <button
         className={cx(BtnStyles.primary, HandStyles.btn)}
         onClick={(e) => {
@@ -24,18 +24,22 @@ export default function Hand({ cards }: Props) {
         {" "}
         {reveal ? "Hide" : "Reveal"}
       </button>
-      <div className={cx(HandStyles.hand)}>
+      <div className={cx(HandStyles.cards)}>
         {cards.map((card) => {
           return (
-            <Image
-              src={
-                reveal ? `/images/cardsvg/${card}.svg` : "/images/cardsvg/b.svg"
-              }
-              alt="card"
-              width={158}
-              height={238}
-              key={card}
-            />
+            <div className={HandStyles.card} key={card}>
+              <Image
+                src={
+                  reveal
+                    ? `/images/cardsvg/${card}.svg`
+                    : "/images/cardsvg/b.svg"
+                }
+                alt="card"
+                fill
+                // width={158}
+                // height={238}
+              />
+            </div>
           );
         })}
       </div>

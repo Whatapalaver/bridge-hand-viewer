@@ -1,7 +1,23 @@
-.playerHand {
+@import "../styles/variables.scss";
+
+.header {
+  @include responsive-width;
+  height: 100px;
   display: flex;
-  width: 90%;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &.wide {
+    max-width: 1280px;
+  }
+  .title {
+    font-size: 48px;
+    text-align: center;
+    padding-top: 15px;
+    @media screen and (max-width: 900px) {
+      font-size: 30px;
+    }
+  }
 }
 
 .cardTable {
@@ -10,6 +26,25 @@
   gap: 10px;
   justify-content: center;
   align-items: center;
-  position: relative;
+  // position: relative;
   background: #076324;
+  padding: 10px;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  @media (max-width: $breakpoint) {
+    flex-direction: column;
+    gap: 0;
+  }
+  input {
+    display: flex;
+  }
+}
+
+.option {
+  display: flex;
+  gap: 10px;
 }

@@ -1,16 +1,52 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: 5px;
-}
+@import "../styles/variables.scss";
 
-.hand {
+.playerHand {
   display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
+  width: 90%;
+  flex-direction: column;
+  align-items: center;
 }
 
 .btn {
   max-width: 200px;
+}
+
+@mixin fan($count, $angle) {
+  @for $i from 1 through $count {
+    div:nth-child(#{$i}) {
+      transform: translate(-50%, -50%)
+        rotate(-$angle / 2 + $angle / ($count + 1) * $i);
+    }
+  }
+}
+
+.cards {
+  height: 500px;
+  width: 100%;
+
+  @include fan(13, 90deg);
+
+  &:hover {
+    @include fan(13, 110deg);
+  }
+}
+
+.card {
+  background: white;
+  height: $cardheight;
+  width: $cardwidth;
+  border-radius: 10px;
+  position: absolute;
+  box-shadow: 0 0 30px transparentize(black, 0.8);
+  left: 50%;
+  top: 50%;
+  transform-origin: center 120%;
+  padding: 5px;
+  img {
+    padding: 5px;
+  }
+  @media (max-width: $breakpoint) {
+    height: calc(0.7 * $cardheight);
+    width: calc(0.7 * $cardwidth);
+  }
 }
