@@ -76,16 +76,6 @@ export default function GamePage() {
       </div>
       <div className={cx(PageStyles.container)}>
         <div className={cx(PageStyles.controls)}>
-          <button
-            className={cx(BtnStyles.primary, HandStyles.btn)}
-            onClick={(e) => {
-              toggleReveal();
-            }}
-            disabled={!cardinal}
-          >
-            {" "}
-            {reveal ? "Hide" : "Reveal"}
-          </button>
           <div className={PageStyles.navigation}>
             <button
               className={cx(BtnStyles.primary, HandStyles.btn)}
@@ -169,14 +159,26 @@ export default function GamePage() {
               </label>
             </div>
           </div>
-          <button
-            className={cx(BtnStyles.primary, HandStyles.btn)}
-            onClick={(e) => {
-              toggleCardView();
-            }}
-          >
-            {view !== "simple" ? "List View (mobile devices)" : "Card View"}
-          </button>
+          <div className={cx(BoardStyles.displayControls)}>
+            <button
+              className={cx(BtnStyles.primary, HandStyles.btn)}
+              onClick={(e) => {
+                toggleReveal();
+              }}
+              disabled={!cardinal}
+            >
+              {" "}
+              {reveal ? "Hide" : "Reveal"}
+            </button>
+            <button
+              className={cx(BtnStyles.primary, HandStyles.btn)}
+              onClick={(e) => {
+                toggleCardView();
+              }}
+            >
+              {view !== "simple" ? "List View" : "Card View"}
+            </button>
+          </div>
           <div>
             {!isLoading && cardinal && (
               <Hand

@@ -33,6 +33,11 @@
   padding: 15px;
 }
 
+.displayControls {
+  display: flex;
+  gap: 5px;
+}
+
 .options {
   display: flex;
   flex-wrap: wrap;
