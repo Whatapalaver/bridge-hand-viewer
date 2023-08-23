@@ -2,13 +2,26 @@
 
 .playerHand {
   display: flex;
-  width: 90%;
+  min-width: 250px;
+  max-width: 700px;
   flex-direction: column;
   align-items: center;
+  height: 400px;
+  position: relative;
+  gap: 30px;
+  padding-top: 20px;
+  @media (max-width: $breakpoint) {
+    height: 350px;
+    gap: 15px;
+    padding-top: 0px;
+  }
 }
 
 .btn {
   max-width: 175px;
+  @media (max-width: $breakpoint) {
+    font-size: 12px;
+  }
 }
 
 @mixin fan($count, $angle) {
@@ -20,15 +33,10 @@
   }
 }
 
-.cards {
-  height: 500px;
-  width: 100%;
-  @media (max-width: $breakpoint) {
-    height: 350px;
-  }
-  @include fan(13, 90deg);
+.fannedCards {
+  @include fan(13, 110deg);
   &:hover {
-    @include fan(13, 110deg);
+    @include fan(13, 130deg);
   }
 }
 
@@ -49,10 +57,32 @@
   @media (max-width: $breakpoint) {
     height: calc(0.7 * $cardheight);
     width: calc(0.7 * $cardwidth);
-    top: 375px;
   }
 }
 
 .points {
   color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.simple {
+  background: hsla(108, 50%, 78%, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+}
+.suitRow {
+  display: flex;
+  height: 60px;
+  align-items: center;
+
+  padding: 5px;
+  .value {
+    font-size: 20px;
+    border-radius: 3px;
+    padding: 5px;
+    border: 1px solid white;
+    margin: 3px;
+    background: white;
+  }
 }

@@ -1,6 +1,6 @@
 @import "../styles/variables.scss";
 .primary {
-  @apply bg-blue-700 text-white p-4 rounded-lg;
+  @apply bg-blue-700 text-white p-3 rounded-lg;
   &[disabled] {
     background-color: $darkgrey;
     color: $lightgrey;
@@ -8,5 +8,5 @@
 }
 
 .error {
-  @apply bg-red-800 text-white p-4 rounded-lg;
+  @apply bg-red-800 text-white p-3 rounded-lg;
 }

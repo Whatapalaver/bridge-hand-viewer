@@ -25,8 +25,8 @@ export default function Home() {
               chums and then share a game code so they can retrieve their hand
             </p>
             <p className="my-4">
-              There are 500 games available, just search for a game using an id
-              from 1 to 501.
+              There are plenty of games available, just search for a game using
+              an id from 1 to 500.
             </p>
             <p className="my-4">
               All the games will be refreshed weekly - Sunday at 1am London

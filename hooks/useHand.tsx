@@ -40,8 +40,8 @@ function getDescriptiveSuit(hand: string) {
 
     suit_list = suit_list.concat(spades.map((c) => `${c}s`));
     suit_list = suit_list.concat(hearts.map((c) => `${c}h`));
-    suit_list = suit_list.concat(diamonds.map((c) => `${c}d`));
     suit_list = suit_list.concat(clubs.map((c) => `${c}c`));
+    suit_list = suit_list.concat(diamonds.map((c) => `${c}d`));
   }
 
   return suit_list;

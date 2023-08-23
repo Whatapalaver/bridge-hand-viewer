@@ -16,6 +16,7 @@ export default function GamePage() {
   const router = useRouter();
   const gameId = router.query.id as string | undefined;
   const cardinal = router.query.dir as Cardinality | undefined;
+  const view = router.query.view as string | undefined;
   const { hand, isLoading } = useHand(Number(gameId) - 1);
   const [reveal, setReveal] = useState(false);
 
@@ -46,6 +47,25 @@ export default function GamePage() {
       { scroll: false }
     );
   }
+
+  function toggleCardView() {
+    const currentPath = router.pathname;
+    const currentQuery = router.query;
+    const newView = view === "simple" ? "card" : "simple";
+    currentQuery.view = String(newView);
+
+    router.push(
+      {
+        pathname: currentPath,
+        query: currentQuery,
+      },
+      undefined,
+      { scroll: false }
+    );
+  }
+
+  console.log(hand);
+  console.log("View: ", view);
 
   return (
     <>
@@ -148,13 +168,23 @@ export default function GamePage() {
               </label>
             </div>
           </div>
+          <button
+            className={cx(BtnStyles.primary, HandStyles.btn)}
+            onClick={(e) => {
+              toggleCardView();
+            }}
+          >
+            {view !== "simple" ? "Card View" : "List View (mobile devices)"}
+          </button>
           <div>
             {!isLoading && cardinal && (
               <Hand
                 cards={hand[cardinal]["desc_hand"]}
+                hand={hand[cardinal]["hand"]}
                 visible={reveal}
                 cardinal={cardinal}
                 hcp={hand[cardinal]["hcp"]}
+                simple={view === "simple"}
               />
             )}
           </div>
