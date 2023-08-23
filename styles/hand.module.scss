@@ -70,12 +70,14 @@
   background: hsla(108, 50%, 78%, 0.7);
   padding: 10px;
   border-radius: 5px;
+  @media (max-width: 350px) {
+    padding: 5px;
+  }
 }
 .suitRow {
   display: flex;
-  height: 60px;
+  height: 55px;
   align-items: center;
-
   padding: 5px;
   .value {
     font-size: 20px;
@@ -84,5 +86,8 @@
     border: 1px solid white;
     margin: 3px;
     background: white;
+    @media (max-width: 350px) {
+      padding: 3px;
+    }
   }
 }
