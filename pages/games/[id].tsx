@@ -66,6 +66,7 @@ export default function GamePage() {
 
   console.log(hand);
   console.log("View: ", view);
+  console.log("Test: ", view !== "simple");
 
   return (
     <>
@@ -174,7 +175,7 @@ export default function GamePage() {
               toggleCardView();
             }}
           >
-            {view !== "simple" ? "Card View" : "List View (mobile devices)"}
+            {view !== "simple" ? "List View (mobile devices)" : "Card View"}
           </button>
           <div>
             {!isLoading && cardinal && (
