@@ -72,10 +72,10 @@ export default function GamePage() {
     <>
       <div className={cx(BoardStyles.header)}>
         <div className={cx(BoardStyles.title)}>Bridge Hand Viewer</div>
-        <div>Game: {gameId}</div>
       </div>
       <div className={cx(PageStyles.container)}>
         <div className={cx(PageStyles.controls)}>
+          <div className={cx(PageStyles.game)}>Game: {gameId}</div>
           <div className={PageStyles.navigation}>
             <button
               className={cx(BtnStyles.primary, HandStyles.btn)}
