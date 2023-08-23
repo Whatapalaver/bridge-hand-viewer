@@ -24,6 +24,14 @@
   }
 }
 
+.warning {
+  padding: 5px;
+  color: black;
+  background: yellow;
+  border-radius: 5px;
+  text-align: center;
+}
+
 @mixin fan($count, $angle) {
   @for $i from 1 through $count {
     div:nth-child(#{$i}) {
