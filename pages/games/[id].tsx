@@ -22,8 +22,8 @@ export default function GamePage() {
 
   const toggleReveal = () => setReveal((value) => !value);
 
-  function selectDir(event: React.ChangeEvent<HTMLInputElement>) {
-    router.push(`/games/${gameId}?dir=${event.target.value}`);
+  function selectDir(dir: Cardinality) {
+    router.push(`/games/${gameId}?dir=${dir}`);
   }
 
   // When new page selected in pagination, we take current path and query params.
@@ -99,64 +99,28 @@ export default function GamePage() {
         <div className={BoardStyles.cardTable}>
           <div className={BoardStyles.options}>
             <div className={BoardStyles.partnership}>
-              <label
-                className={BoardStyles.option}
-                key="N"
-                data-selected={cardinal === "N"}
-              >
-                <input
-                  type="radio"
-                  value="N"
-                  name="North"
-                  onChange={selectDir}
-                  checked={cardinal === "N"}
-                />
-                <div>North</div>
-              </label>
-              <label
-                className={BoardStyles.option}
-                key="S"
-                data-selected={cardinal === "S"}
-              >
-                <input
-                  type="radio"
-                  value="S"
-                  name="South"
-                  onChange={selectDir}
-                  checked={cardinal === "S"}
-                />
-                <div>South</div>
-              </label>
+              {["N", "S"].map((dir) => (
+                <button
+                  className={cx(BtnStyles.secondary, HandStyles.btn)}
+                  key={dir}
+                  data-selected={cardinal === (dir as Cardinality)}
+                  onClick={() => selectDir(dir as Cardinality)}
+                >
+                  {dir}
+                </button>
+              ))}
             </div>
             <div className={BoardStyles.partnership}>
-              <label
-                className={BoardStyles.option}
-                key="W"
-                data-selected={cardinal === "W"}
-              >
-                <input
-                  type="radio"
-                  value="W"
-                  name="West"
-                  onChange={selectDir}
-                  checked={cardinal === "W"}
-                />
-                <div>West</div>
-              </label>
-              <label
-                className={BoardStyles.option}
-                key="E"
-                data-selected={cardinal === "E"}
-              >
-                <input
-                  type="radio"
-                  value="E"
-                  name="East"
-                  onChange={selectDir}
-                  checked={cardinal === "E"}
-                />
-                <div>East</div>
-              </label>
+              {["W", "E"].map((dir) => (
+                <button
+                  className={cx(BtnStyles.secondary, HandStyles.btn)}
+                  key={dir}
+                  data-selected={cardinal === (dir as Cardinality)}
+                  onClick={() => selectDir(dir as Cardinality)}
+                >
+                  {dir}
+                </button>
+              ))}
             </div>
           </div>
           {cardinal ? (

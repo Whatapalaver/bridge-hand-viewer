@@ -62,8 +62,8 @@ export default function Hand({
                   <Image
                     src={`/images/icons/${SuitLogo[idx]}.svg`}
                     alt="suit"
-                    width={40}
-                    height={40}
+                    width={35}
+                    height={35}
                   />
                 </div>
                 {visible &&

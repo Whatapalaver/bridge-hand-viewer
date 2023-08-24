@@ -7,6 +7,21 @@
   }
 }
 
+.secondary {
+  @apply bg-purple-200 text-white p-3 rounded-lg;
+  color: black;
+  min-width: 40px;
+  &[data-selected="true"] {
+    @apply bg-purple-600;
+    color: white;
+    border: 1px solid white;
+  }
+  &[disabled] {
+    background-color: $darkgrey;
+    color: $lightgrey;
+  }
+}
+
 .error {
   @apply bg-red-800 text-white p-3 rounded-lg;
 }
