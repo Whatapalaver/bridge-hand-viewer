@@ -22,8 +22,10 @@ export default function GamePage() {
 
   const toggleReveal = () => setReveal((value) => !value);
 
-  function selectDir(dir: Cardinality) {
-    router.push(`/games/${gameId}?dir=${dir}`);
+  function updateQueryParams(query: string, value: any) {
+    const url = new URL(window.location.href);
+    url.searchParams.set(query, value);
+    router.push(url.toString());
   }
 
   // When new page selected in pagination, we take current path and query params.
@@ -49,24 +51,9 @@ export default function GamePage() {
   }
 
   function toggleCardView() {
-    const currentPath = router.pathname;
-    const currentQuery = router.query;
     const newView = view === "simple" ? "card" : "simple";
-    currentQuery.view = String(newView);
-
-    router.push(
-      {
-        pathname: currentPath,
-        query: currentQuery,
-      },
-      undefined,
-      { scroll: false }
-    );
+    updateQueryParams("view", newView);
   }
-
-  console.log(hand);
-  console.log("View: ", view);
-  console.log("Test: ", view !== "simple");
 
   return (
     <>
@@ -104,7 +91,7 @@ export default function GamePage() {
                   className={cx(BtnStyles.secondary, HandStyles.btn)}
                   key={dir}
                   data-selected={cardinal === (dir as Cardinality)}
-                  onClick={() => selectDir(dir as Cardinality)}
+                  onClick={() => updateQueryParams("dir", dir)}
                 >
                   {dir}
                 </button>
@@ -116,7 +103,7 @@ export default function GamePage() {
                   className={cx(BtnStyles.secondary, HandStyles.btn)}
                   key={dir}
                   data-selected={cardinal === (dir as Cardinality)}
-                  onClick={() => selectDir(dir as Cardinality)}
+                  onClick={() => updateQueryParams("dir", dir)}
                 >
                   {dir}
                 </button>
